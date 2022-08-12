@@ -1,5 +1,5 @@
-const columns = document.querySelectorAll(".column");
 
+const columns = document.querySelectorAll(".column");
 
 columns.forEach((column) => {
   
@@ -12,29 +12,36 @@ columns.forEach((column) => {
 
 
 
-if ($(window).width() < 800) {
-  $("MultiCarousel-inner").show();
+if ( $('body').width() < 800) {
+  
+  $("div.MultiCarousel").show();
   ResCarouselSize();
-  $(".leftside").hide();
+  $(".leftside").show();
 
 } else {
-  $("MultiCarousel-inner").hide();
+  
+  $("div.MultiCarousel").show();
   $(".leftside").show();
 }
 
-
-$(window).resize(function () {
-  
-  if ($(window).width() < 800) {
-    $("MultiCarousel-inner").show();
+setInterval( function() {
+  if ( $('body').width() < 800) {
+    
+    $("div.MultiCarousel").show();
     ResCarouselSize();
-    $(".leftside").hide();
+    $(".leftside").show();
 
   } else {
-    $("MultiCarousel-inner").hide();
+    
+    $("div.MultiCarousel").show();
     $(".leftside").show();
   }
-});
+}, 30)
+
+// $(window).resize(function () {
+  
+ 
+// });
 
 
 
@@ -112,6 +119,9 @@ $(window).resize(function () {
 
   //this function used to move the items
   function ResCarousel(e, el, s) {
+      console.log( e );
+      console.log( el );
+      console.log(s) ;
       var leftBtn = ('.leftLst');
       var rightBtn = ('.rightLst');
       var translateXval = '';
@@ -143,7 +153,10 @@ $(window).resize(function () {
   //It is used to get some elements from btn
   function click(ell, ee) {
       var Parent = "#" + $(ee).parent().attr("id");
+      
+      
       var slide = $(Parent).attr("data-slide");
+      
       ResCarousel(ell, Parent, slide);
   }
 

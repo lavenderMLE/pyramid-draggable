@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mouseenter demo</title>
+  <style>
+  div.out {
+    width: 40%;
+    height: 120px;
+    margin: 0 15px;
+    background-color: #d6edfc;
+    float: left;
+  }
+  div.in {
+    width: 60%;
+    height: 60%;
+    background-color: #fc0;
+    margin: 10px auto;
+  }
+  p {
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div class="out overout">
+  <p>move your mouse</p>
+  <div class="in overout"><p>move your mouse</p><p>0</p></div>
+  <p>0</p>
+</div>
+
+<script>
+var i = 0;
+$( "div.overout" )
+  .mouseover(function() {
+    $( "p", this ).first().text( "mouse over" );
+    $( "p", this ).last().text( ++i );
+    console.log( $( "p", this ) ) ;
+  })
+  .mouseout(function() {
+    $( "p", this ).first().text( "mouse out" );
+    console.log($( "p", this )) ;
+  });
+ 
+
+</script>
+ 
+</body>
+</html>
