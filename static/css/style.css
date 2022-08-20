@@ -1,12 +1,18 @@
-.container {
-  font-family: "Trebuchet MS", sans-serif;
-  display: flex;
-  gap: 30px;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 10rem;
+.ghost {
+  opacity: 1;
+  border: solid yellow 1px !important;
+  background: none !important;
+  content-visibility: hidden;
 }
 
+
+.column {
+  /* flex-basis: 20%;
+  background: #ddd;
+  min-height: 90vh;
+  padding: 5px;
+  border-radius: 10px; */
+}
 .column h1 {
   text-align: center;
   font-size: 22px;
@@ -16,12 +22,37 @@
   width: 80px;
   height: 120px;
   border-radius: 5px;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid darkgray;
-  /* margin: auto; */
+  position: relative;
+}
+.leftCorner-handle {
+  cursor: pointer ;  
+  position: absolute ;
+  top: 0 ;
+  left: 0 ; 
+
+  width: 0;
+  height: 0;  
+  border-left: 0;
+  border-right: 20px solid transparent;
+  border-bottom: 0;
+  border-top: 20px solid red; 
+}
+
+.card {
+  background: #fff;
+  width: 80px;
+  height: 120px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid darkgray;
+  position: relative;
 }
 
 html,
@@ -211,7 +242,7 @@ video {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-.card-position span {
+.card-position-span {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -287,10 +318,7 @@ video {
   flex-wrap: wrap;
 }
 
-#slider-container {
-  display: flex;
-}
-#slider-container .item {  
+#owl-demo .item {
   background: white;
   padding: 48px 20px;
   margin: 0 auto;
@@ -309,24 +337,44 @@ video {
 }
 
 
-/* multi slide  */
-.MultiCarousel { 
-  float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; 
-}
-.MultiCarousel .MultiCarousel-inner {
-  transition: 1s ease all; float: left; 
+
+.container {
+  font-family: "Trebuchet MS", sans-serif;
+  display: flex;
+  gap: 30px;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10rem;
 }
 
-.each-item-div {
-  float: left;
+.slider-container {
+  /* border: solid red; */
+  width: 80%;
+  height: 120px;
+  position: relative;
+  /* position: absolute;
+  top: 90%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  overflow: hidden;
+}
+.inner-slider {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;  
+  background-color: grey;
+  
 }
 
-.MultiCarousel .leftLst, .MultiCarousel .rightLst { 
-  position:absolute; top:calc(50% - 20px); 
-}
-.MultiCarousel .leftLst { left:0; }
-.MultiCarousel .rightLst { right:0; }
 
-.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { 
-  pointer-events: none; background:#ccc; 
+@media screen and (max-width: 800px){
+  .slider-container {
+    border: solid grey 1px;    
+  }
+  .container {    
+    padding-top: 0px; 
+    padding-bottom: 20px ;
+  } 
 }
